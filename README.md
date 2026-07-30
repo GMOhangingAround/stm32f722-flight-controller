@@ -58,12 +58,22 @@ Full configuration in [`firmware/cli-diff.txt`](firmware/cli-diff.txt).
  
 Battery input goes through a TVS clamp, a buck converter to 5 V for the motors and peripherals, and an LDO to 3.3 V for the MCU and sensors, with a filtered rail feeding the IMU and barometer. Battery voltage is monitored through a 100k / 10k divider into an ADC input.
  
-Simulated in LTspice before manufacture:
- 
-- 5 V buck converter
-- TVS diode response
+Simulated in LTspice before manufacture. The regulator in the simulations is an LT8610, used as a stand-in because no SPICE model is available for the AP63205.
 
-Files and plots will be added in `simulation/`.
+**Transient response with the TVS diode.** A transient on the battery node is clamped to around 38 V and the 5 V rail is unaffected.
+<p align="center">
+  <img src="simulation/transient-with-tvs.png" alt="Transient response with the TVS fitted" width="820">
+</p>
+
+**The same transient with the TVS removed**, reaching about 47 V. The difference between the two is the TVS doing its job.
+ 
+<p align="center">
+  <img src="simulation/transient-no-tvs.png" alt="Transient response with the TVS removed" width="820">
+</p>
+
+Even when clamped, the peak sits above the buck converter's 32 V operating range, which is why a higher voltage regulator or a lower clamping TVS is on the v2 list.
+
+LTspice source files are in `simulation/`.
  
 ## Firmware
  
@@ -96,6 +106,7 @@ I brought the board up in stages and checked each one before moving on.
 - Rework power distribution so peripherals such as the camera and VTX cannot be powered through the USB 5 V rail, while keeping the onboard sensors powered from USB for bench testing, and improve the decoupling strategy
 - Add Blackbox logging
 - Increase pad spacing for easier hand soldering
+
 ## Repository layout
  
 ```
