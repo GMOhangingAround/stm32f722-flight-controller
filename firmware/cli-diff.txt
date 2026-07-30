@@ -1,0 +1,66 @@
+# Betaflight configuration for the STM32F722 flight controller
+# Betaflight 4.5.1, STM32F7X2 target, IFLIGHT_BLITZ_F722 board configuration
+# Captured with "diff all" from the Betaflight Configurator CLI.
+#
+
+batch start
+
+defaults nosave
+
+board_name IFLIGHT_BLITZ_F722
+manufacturer_id IFRC
+
+# resources
+resource MOTOR 1 B06
+resource MOTOR 2 B07
+resource MOTOR 3 B08
+resource MOTOR 4 B09
+resource MOTOR 5 NONE
+resource MOTOR 6 NONE
+resource MOTOR 7 NONE
+resource MOTOR 8 NONE
+resource I2C_SCL 1 NONE
+resource I2C_SCL 2 B10
+resource I2C_SDA 1 NONE
+resource I2C_SDA 2 B11
+resource LED 1 A07
+resource SPI_SCK 1 NONE
+resource SPI_SDI 1 NONE
+resource SPI_SDO 1 NONE
+resource ADC_BATT 1 A05
+resource OSD_CS 1 NONE
+resource GYRO_EXTI 1 C06
+resource GYRO_CS 1 B12
+
+# timer
+timer B08 AF2
+# pin B08: TIM4 CH3 (AF2)
+timer B09 AF2
+# pin B09: TIM4 CH4 (AF2)
+
+# dma
+dma pin B08 0
+# pin B08: DMA1 Stream 7 Channel 2
+
+# feature
+feature TELEMETRY
+feature LED_STRIP
+feature OSD
+
+# serial
+serial 2 64 115200 57600 0 115200
+
+# master
+set baro_i2c_device = 2
+set baro_i2c_address = 118
+set baro_hardware = BMP388
+set gyro_1_spibus = 2
+set i2c2_pullup = ON
+set motor_output_reordering = 3,2,1,0,4,5,6,7
+set vbat_max_cell_voltage = 420
+set failsafe_throttle_low_delay = 15
+
+profile 0
+set motor_output_limit = 70
+
+save
