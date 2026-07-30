@@ -39,7 +39,7 @@ This is my final year project, built to get hands-on experience and out of an in
 | Motor protocol | DShot |
 | Receiver protocol | CRSF |
 | USB | USB-C |
-| Interfaces | UART, I2C, SWD debug |
+| Interfaces | SPI (IMU), I2C (barometer), UART (receiver), SWD (debug) |
 
 ## Pin mapping
  
