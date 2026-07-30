@@ -7,12 +7,12 @@ This is a custom STM32F722 36 x 36 mm flight controller for racing quadcopters.
 This is my final year project, built to get hands-on experience and out of an interest in hobbyist drone builds. The board is a 36 x 36 mm 4-layer flight controller designed around an STM32F722, running Betaflight. I designed the schematic and the layout, simulated the power chain in LTspice before finalising the design, and had the board manufactured and assembled at JLCPCB. I built and soldered the drone by hand.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/70a535f0-72a7-4432-b673-b5692c04e799" alt="Assembled flight controller top view" width="400">
-  <img src="https://github.com/user-attachments/assets/7b10e90d-1fd5-4c27-a7bb-7cdaf35900b2" alt="Flight controller back view" width="400">
+  <img src="images/fc-top.jpg" alt="Assembled flight controller top view" width="400">
+  <img src="images/fc-bottom.jpg" alt="Flight controller back view" width="400">
 </p>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/8a6af153-7a25-403b-b7e1-609f4fdf5198" alt="Completed quadcopter with the flight controller fitted" width="320">
+  <img src="images/drone-build.jpeg" alt="Completed quadcopter with the flight controller fitted" width="320">
 </p>
 
 ## Major components
